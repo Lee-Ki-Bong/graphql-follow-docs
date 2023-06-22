@@ -6,6 +6,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(3000);
   const { schema } = app.get(GraphQLSchemaHost);
-  console.log(schema);
+  // console.log(schema);
 }
 bootstrap();
