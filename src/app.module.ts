@@ -6,6 +6,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { LoggingPlugin } from './common/logger/logging.plugin';
 import { loggerMiddleware } from './common/logger/logger.middleware';
+import { ComplexityPlugin } from './common/complexity/complexity.plugin';
 
 @Module({
   imports: [
@@ -20,6 +21,6 @@ import { loggerMiddleware } from './common/logger/logger.middleware';
       },
     }),
   ],
-  providers: [LoggingPlugin, AppResolver, AppService],
+  providers: [ComplexityPlugin, LoggingPlugin, AppResolver, AppService],
 })
 export class AppModule {}

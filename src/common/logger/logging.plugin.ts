@@ -1,13 +1,14 @@
 import { ApolloServerPlugin, GraphQLRequestListener } from '@apollo/server';
 import { Plugin } from '@nestjs/apollo';
+import { Logger } from '@nestjs/common';
 
 @Plugin()
 export class LoggingPlugin implements ApolloServerPlugin {
   async requestDidStart(): Promise<GraphQLRequestListener<any>> {
-    console.log('Request started');
+    Logger.log('Request started', LoggingPlugin.name);
     return {
       async willSendResponse() {
-        console.log('Will send response');
+        Logger.log('Will send response', LoggingPlugin.name);
       },
     };
   }
